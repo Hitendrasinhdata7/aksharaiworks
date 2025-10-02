@@ -3,414 +3,560 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Akshar AI – DIY Kits & Complete AI Agent Setup</title>
+  <title>Akshar AI – Ultra Pro AI Automation Solutions</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    .modal-content { text-align: left; padding: 20px; }
+    .modal-ul { padding-left: 20px; margin-top: 10px; }
+    .agent-card { display: flex; flex-direction: column; justify-content: space-between; height: 100%; text-align: center; }
+    .agent-details { padding: 0 10px; text-align: center; }
+    .agent-details ul { list-style: none; padding: 0; margin: 0; display: inline-block; text-align: left; }
+    .agent-details ul li { padding: 5px 0; }
+    .agent-details ul li::before { content: "✔"; color: #a855f7; margin-right: 8px; }
+    .button-group { display: flex; gap: 10px; justify-content: center; margin-top: auto; }
+    .about-section { max-width: 700px; margin: 0 auto; }
+  </style>
 </head>
-<body class="bg-gray-50 text-gray-900">
+<body class="bg-gray-900 text-white font-inter">
 
   <!-- Header -->
-  <header class="bg-white shadow-md sticky top-0 z-50">
-    <div class="container mx-auto flex justify-between items-center p-3">
-      <a href="#home" class="flex items-center space-x-3 bg-gray-50 p-1 rounded">
-        <img src="Logo3.jpeg" alt="Akshar AI Logo" class="h-14 w-auto object-contain">
+  <header class="bg-gray-800 shadow-lg sticky top-0 z-50">
+    <div class="container mx-auto flex justify-between items-center p-4">
+      <a href="#home" class="flex items-center space-x-3 bg-gray-700 p-2 rounded-lg transition hover:bg-gray-600">
+        <img src="Logo3.jpeg" alt="Akshar AI Logo" class="h-12 w-auto object-contain">
+        <span class="text-xl font-bold text-white">Grow With Smart AI</span>
       </a>
 
-      <nav class="hidden md:flex space-x-6 font-semibold">
-        <a href="#about" class="hover:text-purple-500">About</a>
-        <a href="#services" class="hover:text-purple-500">Services</a>
-        <a href="#products" class="hover:text-purple-500">DIY Kits</a>
-        <a href="#process" class="hover:text-purple-500">Our Process</a>
-        <a href="#pricing" class="hover:text-purple-500">Pricing</a>
-        <a href="#faq" class="hover:text-purple-500">FAQ</a>
-        <a href="#contact" class="hover:text-purple-500">Contact</a>
+      <nav class="hidden md:flex space-x-8 font-semibold text-lg">
+        <a href="#about" class="hover:text-purple-400 transition">About</a>
+        <a href="#services" class="hover:text-purple-400 transition">Services</a>
+        <a href="#process" class="hover:text-purple-400 transition">Our Process</a>
+        <a href="#pricing" class="hover:text-purple-400 transition">Pricing</a>
+        <a href="#agents" class="hover:text-purple-400 transition">Our Agents</a>
+        <a href="#faq" class="hover:text-purple-400 transition">FAQ</a>
       </nav>
 
-      <button id="mobile-menu-button" class="md:hidden p-2 rounded-lg bg-purple-500 text-white">☰</button>
+      <button id="mobile-menu-button" class="md:hidden p-2 rounded-lg bg-purple-500 text-white hover:bg-purple-600 transition">☰</button>
     </div>
 
-    <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg">
+    <div id="mobile-menu" class="hidden md:hidden bg-gray-800 shadow-lg">
       <nav class="flex flex-col space-y-2 p-4">
-        <a href="#about" class="hover:text-purple-500">About</a>
-        <a href="#services" class="hover:text-purple-500">Services</a>
-        <a href="#products" class="hover:text-purple-500">DIY Kits</a>
-        <a href="#process" class="hover:text-purple-500">Our Process</a>
-        <a href="#pricing" class="hover:text-purple-500">Pricing</a>
-        <a href="#faq" class="hover:text-purple-500">FAQ</a>
-        <a href="#contact" class="hover:text-purple-500">Contact</a>
+        <a href="#about" class="hover:text-purple-400 transition">About</a>
+        <a href="#services" class="hover:text-purple-400 transition">Services</a>
+        <a href="#process" class="hover:text-purple-400 transition">Our Process</a>
+        <a href="#pricing" class="hover:text-purple-400 transition">Pricing</a>
+        <a href="#agents" class="hover:text-purple-400 transition">Our Agents</a>
+        <a href="#faq" class="hover:text-purple-400 transition">FAQ</a>
       </nav>
     </div>
   </header>
 
   <!-- Hero -->
-  <section id="home" class="relative bg-gradient-to-r from-purple-500 via-pink-500 to-red-400 text-white text-center overflow-hidden py-28">
-    <div class="absolute top-0 left-0 w-72 h-72 bg-white opacity-10 rounded-full -translate-x-1/2 -translate-y-1/2 animate-pulse"></div>
-    <div class="absolute bottom-0 right-0 w-96 h-96 bg-white opacity-5 rounded-full translate-x-1/4 translate-y-1/4 animate-pulse"></div>
+  <section id="home" class="relative bg-gradient-to-br from-purple-700 via-indigo-800 to-blue-900 text-white text-center overflow-hidden py-32">
+    <div class="absolute top-0 left-0 w-96 h-96 bg-white opacity-10 rounded-full -translate-x-1/3 -translate-y-1/3 animate-pulse-slow"></div>
+    <div class="absolute bottom-0 right-0 w-80 h-80 bg-white opacity-10 rounded-full translate-x-1/4 translate-y-1/4 animate-pulse-slow"></div>
 
-    <div class="container mx-auto max-w-3xl relative z-10">
-      <h1 class="text-5xl sm:text-6xl font-extrabold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-yellow-300 to-white animate-fade-in">Build & Automate AI Workflows Effortlessly</h1>
-      <p class="text-xl sm:text-2xl mb-8 opacity-90 animate-fade-in-delay">DIY AI Kits, Complete AI Agent Setup, and Automation Services for creators and businesses — save time, scale faster.</p>
+    <div class="container mx-auto max-w-4xl relative z-10">
+      <h1 class="text-5xl sm:text-7xl font-extrabold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-yellow-300 to-white animate-slide-in">Transform Your Business with AI Automation</h1>
+      <p class="text-xl sm:text-2xl mb-10 opacity-90 animate-slide-in-delay">Seamless AI agent setups and automation solutions for businesses and creators to scale smarter and faster.</p>
       <div class="flex justify-center gap-6">
-        <a href="#products" class="bg-white text-purple-600 font-bold px-8 py-4 rounded-lg shadow-lg hover:scale-105 transition">Explore Kits</a>
-        <a href="#contact" class="bg-transparent border-2 border-white text-white font-bold px-8 py-4 rounded-lg hover:bg-white hover:text-purple-600 transition">Get Started</a>
+        <a href="#pricing" class="bg-gradient-to-r from-purple-500 to-pink-500 text-white font-bold px-10 py-4 rounded-xl shadow-xl hover:scale-105 transition">Get Started</a>
+        <a href="#services" class="bg-transparent border-2 border-white text-white font-bold px-10 py-4 rounded-xl hover:bg-white hover:text-purple-600 transition">Explore Services</a>
       </div>
     </div>
 
-    <div class="absolute inset-0 bg-gradient-to-r from-purple-500 via-pink-500 to-red-400 opacity-20 animate-gradient-background"></div>
+    <div class="absolute inset-0 bg-gradient-to-br from-purple-700 via-indigo-800 to-blue-900 opacity-20 animate-gradient-flow"></div>
   </section>
 
   <style>
-    @keyframes fade-in { from {opacity:0; transform:translateY(20px);} to {opacity:1; transform:translateY(0);} }
-    @keyframes fade-in-delay { 0%{opacity:0; transform:translateY(20px);} 50%{opacity:0.5;} 100%{opacity:1; transform:translateY(0);} }
-    @keyframes gradient-background { 0%{background-position:0% 50%;} 50%{background-position:100% 50%;} 100%{background-position:0% 50%;} }
-    .animate-fade-in { animation: fade-in 1s ease-out forwards; }
-    .animate-fade-in-delay { animation: fade-in-delay 1.5s ease-out forwards; }
-    .animate-gradient-background { animation: gradient-background 15s ease infinite; background-size: 200% 200%; }
-    .animate-pulse { animation: pulse 6s ease-in-out infinite; }
-    @keyframes pulse { 0%,100%{transform:scale(1);opacity:0.1;} 50%{transform:scale(1.2);opacity:0.15;} }
+    @keyframes slide-in { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes slide-in-delay { 0% { opacity: 0; transform: translateY(30px); } 50% { opacity: 0.5; } 100% { opacity: 1; transform: translateY(0); } }
+    @keyframes gradient-flow { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+    @keyframes pulse-slow { 0%, 100% { transform: scale(1); opacity: 0.1; } 50% { transform: scale(1.3); opacity: 0.15; } }
+    .animate-slide-in { animation: slide-in 1.2s ease-out forwards; }
+    .animate-slide-in-delay { animation: slide-in-delay 1.8s ease-out forwards; }
+    .animate-gradient-flow { animation: gradient-flow 12s ease infinite; background-size: 200% 200%; }
+    .animate-pulse-slow { animation: pulse-slow 8s ease-in-out infinite; }
   </style>
 
   <!-- About -->
-  <section id="about" class="py-20 px-4 bg-gradient-to-b from-gray-100 to-white">
-    <div class="container mx-auto max-w-4xl text-center">
-      <h2 class="text-4xl sm:text-5xl font-extrabold text-purple-600 mb-8">About Akshar AI</h2>
-      <p class="text-lg sm:text-xl text-gray-700 mb-6 leading-relaxed">At Akshar AI, we are dedicated to empowering <span class="font-semibold text-purple-600">businesses, creators, and innovators</span> with cutting-edge AI automation solutions. Our mission is to make AI accessible, efficient, and transformative for everyone.</p>
-      <p class="text-lg sm:text-xl text-gray-700 mb-6 leading-relaxed">Founded by a team of AI experts with years of experience in automation and machine learning, we specialize in <span class="font-semibold text-purple-500">plug-and-play DIY AI Kits</span> and <span class="font-semibold text-purple-500">complete Done-for-You AI Agent Setups</span>. Whether you're a solo entrepreneur looking to streamline your workflows or a growing business aiming to scale operations, Akshar AI provides tools and services that are <span class="font-semibold text-purple-600">simple, affordable, and highly impactful</span>.</p>
-      <p class="text-lg sm:text-xl text-gray-700 mb-8 leading-relaxed">We believe in the power of AI to save time, reduce costs, and unlock new opportunities. Join us in revolutionizing how you work with AI!</p>
-      <div class="mt-8 flex justify-center gap-6">
-        <a href="#products" class="inline-block bg-gradient-to-r from-purple-500 to-pink-500 text-white font-bold px-8 py-4 rounded-lg shadow-lg hover:scale-105 transition">Explore DIY Kits</a>
-        <a href="#pricing" class="inline-block bg-transparent border-2 border-purple-500 text-purple-500 font-bold px-8 py-4 rounded-lg hover:bg-purple-500 hover:text-white transition">View Pricing</a>
+  <section id="about" class="py-24 px-4 bg-gray-800">
+    <div class="container mx-auto">
+      <h2 class="text-4xl sm:text-5xl font-extrabold text-purple-400 mb-12 text-center">About Akshar AI</h2>
+      <div class="about-section text-center">
+        <p class="text-lg sm:text-xl text-gray-300 mb-6 leading-relaxed">At Akshar AI, we empower <span class="font-semibold text-purple-300">businesses, creators, and innovators</span> with advanced AI automation solutions designed to streamline operations and drive growth.</p>
+        <p class="text-lg sm:text-xl text-gray-300 mb-6 leading-relaxed">Our team of AI experts delivers <span class="font-semibold text-purple-300">custom-built AI agents</span> and automation strategies that integrate seamlessly with your tools, saving time and unlocking new opportunities.</p>
+        <p class="text-lg sm:text-xl text-gray-300 mb-8 leading-relaxed">With a focus on <span class="font-semibold text-purple-300">simplicity, scalability, and impact</span>, we’re here to transform how you work with AI. Join us in shaping the future of automation!</p>
       </div>
-    </div>
-  </section>
-
-  <!-- Products Grid -->
-  <section id="products" class="py-20 px-4 bg-gray-100">
-    <div class="container mx-auto max-w-6xl text-center">
-      <h2 class="text-3xl font-bold text-purple-600 mb-6">DIY AI Kits</h2>
-      <p class="max-w-3xl mx-auto text-gray-700 mb-12">All kits include step-by-step guides, video walkthroughs, configuration files, and a 30-day email support window. Click "More Details" to view in a scrollable popup or buy instantly.</p>
-
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-
-        <!-- Product Card: Generative AI Book -->
-        <article class="bg-white rounded-2xl shadow hover:shadow-xl p-6 flex flex-col" id="card-genbook">
-          <h3 class="text-xl font-bold text-purple-700">Generative AI Book</h3>
-          <p class="text-gray-600 text-sm mt-2 flex-grow">A practical guide to generative models, prompt engineering, and building content workflows that scale.</p>
-          <ul class="text-left text-sm mt-4 list-disc list-inside text-gray-700">
-            <li>150+ pages of tutorials & templates</li>
-            <li>Industry-focused case studies (marketing, education, creative)</li>
-            <li>Examples for Chat, Images, and Code generation</li>
-          </ul>
-          <p class="text-2xl font-extrabold text-purple-900 mt-4">$49</p>
-          <div class="mt-4 grid grid-cols-2 gap-3">
-            <button onclick="openModal('genbook')" class="text-center inline-block py-2 rounded-lg border border-purple-200 hover:bg-purple-50">More Details</button>
-            <a href="https://gumroad.com" target="_blank" class="text-center inline-block py-2 rounded-lg bg-gradient-to-r from-purple-500 to-pink-500 text-white font-bold">Buy on Gumroad</a>
-          </div>
-        </article>
-
-        <!-- Product Card: Leads to Google Sheets CRM -->
-        <article class="bg-white rounded-2xl shadow hover:shadow-xl p-6 flex flex-col" id="card-leads-crm">
-          <h3 class="text-xl font-bold text-purple-700">AutoLead Tracker</h3>
-          <p class="text-gray-600 text-sm mt-2 flex-grow">Turn any lead source (forms, chat, email) into a lightweight CRM in Google Sheets—automated, searchable, and actionable.</p>
-          <ul class="text-left text-sm mt-4 list-disc list-inside text-gray-700">
-            <li>Pre-built Sheets templates & dashboard</li>
-            <li>Auto-import from Typeform/Google Forms & Gmail</li>
-            <li>Lead scoring rules and follow-up reminders</li>
-          </ul>
-          <p class="text-2xl font-extrabold text-purple-900 mt-4">$59</p>
-          <div class="mt-4 grid grid-cols-2 gap-3">
-            <button onclick="openModal('leads')" class="text-center inline-block py-2 rounded-lg border border-purple-200 hover:bg-purple-50">More Details</button>
-            <a href="https://gumroad.com" target="_blank" class="text-center inline-block py-2 rounded-lg bg-gradient-to-r from-purple-500 to-pink-500 text-white font-bold">Buy on Gumroad</a>
-          </div>
-        </article>
-
-        <!-- Product Card: Telegram Bot with Google Sheets -->
-        <article class="bg-white rounded-2xl p-6 shadow hover:shadow-xl flex flex-col" id="card-telegram">
-          <h3 class="text-xl font-bold text-purple-700">Smart Telegram Bot</h3>
-          <p class="text-gray-600 text-sm mt-2 flex-grow">Deploy a Telegram bot to collect responses, answer FAQs, and push structured data to Sheets for reporting.</p>
-          <ul class="text-left text-sm mt-4 list-disc list-inside text-gray-700">
-            <li>Bot template with command examples</li>
-            <li>Webhook setup guide and security tips</li>
-            <li>Data mapping to Google Sheets & triggers</li>
-          </ul>
-          <p class="text-2xl font-extrabold text-purple-900 mt-4">$65</p>
-          <div class="mt-4 grid grid-cols-2 gap-3">
-            <button onclick="openModal('telegram')" class="text-center inline-block py-2 rounded-lg border border-purple-200 hover:bg-purple-50">More Details</button>
-            <a href="https://gumroad.com" target="_blank" class="text-center inline-block py-2 rounded-lg bg-gradient-to-r from-purple-500 to-pink-500 text-white font-bold">Buy on Gumroad</a>
-          </div>
-        </article>
-
-      </div>
-
-      <!-- Modals for DIY AI Kits -->
-      <div id="modal-genbook" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-50 overscroll-contain">
-        <div class="bg-white rounded-2xl p-6 sm:p-8 max-w-lg w-full mx-4 shadow-xl max-h-[70vh] sm:max-h-[80vh] overflow-y-auto">
-          <h3 class="text-2xl font-bold text-purple-700 mb-4">Generative AI Book — Full Details</h3>
-          <p class="text-gray-700 mb-4">Who it’s for: marketers, students, creators, and product teams who want a practical, example-driven introduction to generative AI.</p>
-          <h4 class="mt-4 font-semibold">What’s included</h4>
-          <ul class="list-disc list-inside text-gray-700 mb-4">
-            <li>150+ pages PDF & downloadable templates</li>
-            <li>30+ ready-to-use prompts and prompt patterns</li>
-            <li>Industry case studies & workflow blueprints</li>
-            <li>Video walkthroughs showing real-time prompt tuning</li>
-          </ul>
-          <h4 class="mt-4 font-semibold">Key benefits</h4>
-          <p class="text-gray-700 mb-4">Learn how to build repeatable content systems, improve prompt quality quickly, and adapt models for niche tasks.</p>
-          <h4 class="mt-4 font-semibold">Technical requirements</h4>
-          <p class="text-gray-700 mb-4">A modern browser and a text editor. Example integrations use ChatGPT-compatible APIs (optional — free demos included).</p>
-          <h4 class="mt-4 font-semibold">Support & setup time</h4>
-          <p class="text-gray-700 mb-4">Estimated setup time: 1–3 hours to work through examples. Includes 30 days email support for questions about the book.</p>
-          <div class="flex justify-end gap-4 sticky bottom-0 bg-white pt-4">
-            <button onclick="closeModal('genbook')" class="px-4 py-2 bg-gray-200 rounded-lg">Close</button>
-            <a href="https://gumroad.com" target="_blank" class="px-4 py-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white font-bold rounded-lg">Buy Now</a>
-          </div>
-        </div>
-      </div>
-
-      <div id="modal-leads" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-50 overscroll-contain">
-        <div class="bg-white rounded-2xl p-6 sm:p-8 max-w-lg w-full mx-4 shadow-xl max-h-[70vh] sm:max-h-[80vh] overflow-y-auto">
-          <h3 class="text-2xl font-bold text-purple-700 mb-4">AutoLead Tracker — Full Details</h3>
-          <p class="text-gray-700 mb-4">Turn Google Sheets into a functional CRM with lead capture, scoring, notifications, and reporting.</p>
-          <h4 class="mt-4 font-semibold">What’s included</h4>
-          <ul class="list-disc list-inside text-gray-700 mb-4">
-            <li>Pre-configured Google Sheets with dashboard & scripts</li>
-            <li>Zapier / Make.com templates to ingest leads from forms and email</li>
-            <li>Lead scoring rules with examples and customization guide</li>
-            <li>Auto-reminders via email or Slack integration</li>
-          </ul>
-          <h4 class="mt-4 font-semibold">Use cases</h4>
-          <p class="text-gray-700 mb-4">Small sales teams, freelancers, and local businesses who need lightweight CRM functionality without the cost of a full CRM product.</p>
-          <h4 class="mt-4 font-semibold">Technical requirements</h4>
-          <p class="text-gray-700 mb-4">Google account, optional Zapier or Make.com account for advanced triggers. No server required.</p>
-          <h4 class="mt-4 font-semibold">Support & setup time</h4>
-          <p class="text-gray-700 mb-4">Estimated setup time: 30–90 minutes. Includes a 1-hour onboarding call (for paid customers) and 30 days email support.</p>
-          <div class="flex justify-end gap-4 sticky bottom-0 bg-white pt-4">
-            <button onclick="closeModal('leads')" class="px-4 py-2 bg-gray-200 rounded-lg">Close</button>
-            <a href="https://gumroad.com" target="_blank" class="px-4 py-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white font-bold rounded-lg">Buy Now</a>
-          </div>
-        </div>
-      </div>
-
-      <div id="modal-telegram" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-50 overscroll-contain">
-        <div class="bg-white rounded-2xl p-6 sm:p-8 max-w-lg w-full mx-4 shadow-xl max-h-[70vh] sm:max-h-[80vh] overflow-y-auto">
-          <h3 class="text-2xl font-bold text-purple-700 mb-4">Smart Telegram Bot — Full Details</h3>
-          <p class="text-gray-700 mb-4">A deployable Telegram bot that collects data, responds to users, and stores interactions in Google Sheets for analysis.</p>
-          <h4 class="mt-4 font-semibold">What’s included</h4>
-          <ul class="list-disc list-inside text-gray-700 mb-4">
-            <li>Bot source code and deployment script</li>
-            <li>Webhook setup & security checklist</li>
-            <li>Data mapping templates for Google Sheets</li>
-            <li>Example command sets and AI response prompts</li>
-          </ul>
-          <h4 class="mt-4 font-semibold">Who should use this</h4>
-          <p class="text-gray-700 mb-4">Community managers, event organisers, and businesses collecting structured user feedback via chat.</p>
-          <h4 class="mt-4 font-semibold">Technical requirements</h4>
-          <p class="text-gray-700 mb-4">A Telegram account, hosting for the webhook (Heroku, Render, or similar), and a Google account. Detailed hosting walkthrough included.</p>
-          <h4 class="mt-4 font-semibold">Support & setup time</h4>
-          <p class="text-gray-700 mb-4">Estimated deployment time: 1–2 hours. Includes 30 days email support and troubleshooting steps for common hosting issues.</p>
-          <div class="flex justify-end gap-4 sticky bottom-0 bg-white pt-4">
-            <button onclick="closeModal('telegram')" class="px-4 py-2 bg-gray-200 rounded-lg">Close</button>
-            <a href="https://gumroad.com" target="_blank" class="px-4 py-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white font-bold rounded-lg">Buy Now</a>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- Our 4-Step Process Section -->
-  <section id="process" class="py-20 px-4 bg-white">
-    <div class="container mx-auto max-w-6xl text-center">
-      <h2 class="text-4xl font-extrabold text-purple-600 mb-6">Our 4-Step Done-for-You Process ✨</h2>
-      <p class="max-w-3xl mx-auto text-gray-700 mb-12 text-lg">Discover how we make AI agent setup seamless and effective for your business.</p>
-      <div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <div class="bg-purple-50 rounded-2xl p-6 shadow-lg hover:shadow-xl transition">
-          <div class="flex items-center justify-center w-12 h-12 bg-purple-200 text-purple-600 rounded-full mb-4 mx-auto">
-            <span class="text-2xl font-bold">1</span>
-          </div>
-          <h3 class="text-xl font-semibold text-purple-700 mb-2">Discovery & Planning</h3>
-          <p class="text-gray-600 text-sm">We analyze your business needs, identify automation opportunities, and create a custom AI agent blueprint.</p>
-        </div>
-        <div class="bg-purple-50 rounded-2xl p-6 shadow-lg hover:shadow-xl transition">
-          <div class="flex items-center justify-center w-12 h-12 bg-purple-200 text-purple-600 rounded-full mb-4 mx-auto">
-            <span class="text-2xl font-bold">2</span>
-          </div>
-          <h3 class="text-xl font-semibold text-purple-700 mb-2">Build & Integration</h3>
-          <p class="text-gray-600 text-sm">Our experts build the AI agent and integrate it with your existing tools for smooth operation.</p>
-        </div>
-        <div class="bg-purple-50 rounded-2xl p-6 shadow-lg hover:shadow-xl transition">
-          <div class="flex items-center justify-center w-12 h-12 bg-purple-200 text-purple-600 rounded-full mb-4 mx-auto">
-            <span class="text-2xl font-bold">3</span>
-          </div>
-          <h3 class="text-xl font-semibold text-purple-700 mb-2">Testing & Deployment</h3>
-          <p class="text-gray-600 text-sm">We test rigorously and deploy the agent, ensuring reliability and security.</p>
-        </div>
-        <div class="bg-purple-50 rounded-2xl p-6 shadow-lg hover:shadow-xl transition">
-          <div class="flex items-center justify-center w-12 h-12 bg-purple-200 text-purple-600 rounded-full mb-4 mx-auto">
-            <span class="text-2xl font-bold">4</span>
-          </div>
-          <h3 class="text-xl font-semibold text-purple-700 mb-2">Training & Optimization</h3>
-          <p class="text-gray-600 text-sm">We provide training and ongoing support to optimize performance over time.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="pricing" class="py-20 px-4 bg-gradient-to-b from-white to-purple-50">
-  <div class="container mx-auto max-w-6xl text-center">
-    <h2 class="text-4xl font-extrabold text-purple-600 mb-6">Complete AI Agent Setup</h2>
-    <p class="max-w-3xl mx-auto text-gray-700 mb-12 text-lg">
-      Our Done-for-You AI Agent Setup offers core features across all plans—custom design, build, integration, testing, and training. The only differences are price, duration, and level of optimization.
-    </p>
-
-    <div class="grid sm:grid-cols-1 md:grid-cols-3 gap-6 justify-items-center">
-      <!-- 3-Month Setup -->
-      <div class="bg-purple-100 border-2 border-purple-400 rounded-2xl p-8 shadow-lg hover:scale-105 transition w-full max-w-md">
-        <h3 class="text-2xl font-bold text-purple-700 mb-2">🚀 3-Month Setup</h3>
-        <p class="text-gray-700 text-sm mb-4">Quick launch with core setup and 3 months of support.</p>
-        <p class="text-3xl font-extrabold text-purple-900 mb-4">$299</p>
-        <div class="grid grid-cols-2 gap-3">
-          <a href="https://pci.jotform.com/form/252605274333049" target="_blank" class="text-center py-3 rounded-lg bg-gradient-to-r from-purple-500 to-pink-500 text-white font-bold">AutoLead Tracker</a>
-          <a href="https://form.jotform.com/hr223830/telegram-bot-setup-order-details" target="_blank" class="text-center py-3 rounded-lg bg-gradient-to-r from-purple-500 to-pink-500 text-white font-bold">Smart Telegram Bot</a>
-        </div>
-      </div>
-
-      <!-- 6-Month Setup -->
-      <div class="bg-purple-100 border-2 border-purple-400 rounded-2xl p-8 shadow-lg hover:scale-105 transition w-full max-w-md">
-        <h3 class="text-2xl font-bold text-purple-700 mb-2">🚀 6-Month Setup</h3>
-        <p class="text-gray-700 text-sm mb-4">Extended support with bi-weekly optimizations for 6 months.</p>
-        <p class="text-3xl font-extrabold text-purple-900 mb-4">$499</p>
-        <div class="grid grid-cols-2 gap-3">
-          <a href="https://pci.jotform.com/form/252605274333049" target="_blank" class="text-center py-3 rounded-lg bg-gradient-to-r from-purple-500 to-pink-500 text-white font-bold">AutoLead Tracker</a>
-          <a href="https://form.jotform.com/hr223830/telegram-bot-setup-order-details" target="_blank" class="text-center py-3 rounded-lg bg-gradient-to-r from-purple-500 to-pink-500 text-white font-bold">Smart Telegram Bot</a>
-        </div>
-      </div>
-
-      <!-- 12-Month Setup -->
-      <div class="bg-purple-100 border-2 border-purple-400 rounded-2xl p-8 shadow-lg hover:scale-105 transition w-full max-w-md">
-        <h3 class="text-2xl font-bold text-purple-700 mb-2">🚀 12-Month Setup</h3>
-        <p class="text-gray-700 text-sm mb-4">Full-year support with dedicated optimizations and expansions.</p>
-        <p class="text-3xl font-extrabold text-purple-900 mb-4">$899</p>
-        <div class="grid grid-cols-2 gap-3">
-        <a href="https://pci.jotform.com/form/252605274333049" target="_blank" class="text-center py-3 rounded-lg bg-gradient-to-r from-purple-500 to-pink-500 text-white font-bold">AutoLead Tracker</a>
-          <a href="https://form.jotform.com/hr223830/telegram-bot-setup-order-details" target="_blank" class="text-center py-3 rounded-lg bg-gradient-to-r from-purple-500 to-pink-500 text-white font-bold">Smart Telegram Bot</a>>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
- 
-      <!-- Modals for Pricing -->
-      <div id="modal-3-month" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-50 overscroll-contain">
-        <div class="bg-white rounded-2xl p-6 sm:p-8 max-w-lg w-full mx-4 shadow-xl max-h-[70vh] sm:max-h-[80vh] overflow-y-auto">
-          <h3 class="text-2xl font-bold text-purple-700 mb-4">3-Month Setup Details</h3>
-          <p class="text-gray-700 mb-4">All plans include the same core features: custom AI agent setup, integrations, testing, deployment, and training. The difference is in the support duration (3 months) and price ($299).</p>
-          <ul class="list-disc list-inside text-gray-700 mb-4">
-            <li>Requirements analysis & design</li>
-            <li>Core workflow deployment</li>
-            <li>1 training session</li>
-            <li>3 months email support</li>
-          </ul>
-          <div class="flex justify-end gap-4 sticky bottom-0 bg-white pt-4">
-            <button onclick="closeModal('3-month')" class="px-4 py-2 bg-gray-200 rounded-lg">Close</button>
-            <a href="https://gumroad.com" target="_blank" class="px-4 py-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white font-bold rounded-lg">Buy Now</a>
-          </div>
-        </div>
-      </div>
-
-      <div id="modal-6-month" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-50 overscroll-contain">
-        <div class="bg-white rounded-2xl p-6 sm:p-8 max-w-lg w-full mx-4 shadow-xl max-h-[70vh] sm:max-h-[80vh] overflow-y-auto">
-          <h3 class="text-2xl font-bold text-purple-700 mb-4">6-Month Setup Details</h3>
-          <p class="text-gray-700 mb-4">All plans include the same core features: custom AI agent setup, integrations, testing, deployment, and training. The difference is in the support duration (6 months) and price ($499).</p>
-          <ul class="list-disc list-inside text-gray-700 mb-4">
-            <li>Everything in 3-Month</li>
-            <li>Bi-weekly tuning</li>
-            <li>Priority support</li>
-          </ul>
-          <div class="flex justify-end gap-4 sticky bottom-0 bg-white pt-4">
-            <button onclick="closeModal('6-month')" class="px-4 py-2 bg-gray-200 rounded-lg">Close</button>
-            <a href="https://gumroad.com" target="_blank" class="px-4 py-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white font-bold rounded-lg">Buy Now</a>
-          </div>
-        </div>
-      </div>
-
-      <div id="modal-12-month" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-50 overscroll-contain">
-        <div class="bg-white rounded-2xl p-6 sm:p-8 max-w-lg w-full mx-4 shadow-xl max-h-[70vh] sm:max-h-[80vh] overflow-y-auto">
-          <h3 class="text-2xl font-bold text-purple-700 mb-4">12-Month Setup Details</h3>
-          <p class="text-gray-700 mb-4">All plans include the same core features: custom AI agent setup, integrations, testing, deployment, and training. The difference is in the support duration (12 months) and price ($899).</p>
-          <ul class="list-disc list-inside text-gray-700 mb-4">
-            <li>Everything in 6-Month</li>
-            <li>Dedicated strategist</li>
-            <li>Unlimited expansions</li>
-          </ul>
-          <div class="flex justify-end gap-4 sticky bottom-0 bg-white pt-4">
-            <button onclick="closeModal('12-month')" class="px-4 py-2 bg-gray-200 rounded-lg">Close</button>
-            <a href="https://gumroad.com" target="_blank" class="px-4 py-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white font-bold rounded-lg">Buy Now</a>
-          </div>
-        </div>
+      <div class="mt-10 flex justify-center gap-6">
+        <a href="#pricing" class="inline-block bg-gradient-to-r from-purple-500 to-pink-500 text-white font-bold px-10 py-4 rounded-xl shadow-lg hover:scale-105 transition">View Pricing</a>
       </div>
     </div>
   </section>
 
   <!-- Services -->
-  <section id="services" class="py-20 px-4 bg-white">
+  <section id="services" class="py-24 px-4 bg-gray-900">
     <div class="container mx-auto max-w-6xl text-center">
-      <h2 class="text-3xl font-bold text-purple-600 mb-12">Our Services</h2>
+      <h2 class="text-4xl font-extrabold text-purple-400 mb-12">Our Premium Services</h2>
       <div class="grid sm:grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="bg-gray-50 rounded-2xl shadow hover:shadow-lg p-6 flex flex-col items-center">
-          <h3 class="text-xl font-bold text-purple-700 mb-2">AI Agent Setup</h3>
-          <p class="text-gray-700 text-sm">End-to-end deployment of AI agents customised for your business workflows and goals.</p>
+        <div class="bg-gray-800 rounded-2xl shadow-xl hover:shadow-2xl p-8 flex flex-col items-center transition">
+          <h3 class="text-xl font-bold text-purple-300 mb-3">Custom AI Agent Setup</h3>
+          <p class="text-gray-300 text-sm mb-4">Fully tailored AI agent deployment, integrated with your workflows for maximum efficiency.</p>
+          <button onclick="openModal('service-agent-setup')" class="py-2 px-4 rounded-lg bg-purple-500 text-white font-bold hover:bg-purple-600 transition">More Details</button>
         </div>
-        <div class="bg-gray-50 rounded-2xl shadow hover:shadow-lg p-6 flex flex-col items-center">
-          <h3 class="text-xl font-bold text-purple-700 mb-2">Automation Consulting</h3>
-          <p class="text-gray-700 text-sm">We design tailored automation strategies to reduce manual tasks and accelerate growth.</p>
+        <div class="bg-gray-800 rounded-2xl shadow-xl hover:shadow-2xl p-8 flex flex-col items-center transition">
+          <h3 class="text-xl font-bold text-purple-300 mb-3">Automation Strategy</h3>
+          <p class="text-gray-300 text-sm mb-4">Expert consulting to design automation solutions that eliminate manual tasks and boost productivity.</p>
+          <button onclick="openModal('service-automation')" class="py-2 px-4 rounded-lg bg-purple-500 text-white font-bold hover:bg-purple-600 transition">More Details</button>
         </div>
-        <div class="bg-gray-50 rounded-2xl shadow hover:shadow-lg p-6 flex flex-col items-center">
-          <h3 class="text-xl font-bold text-purple-700 mb-2">Training & Support</h3>
-          <p class="text-gray-700 text-sm">Workshops, resources, and ongoing support so your team can harness AI effectively.</p>
+        <div class="bg-gray-800 rounded-2xl shadow-xl hover:shadow-2xl p-8 flex flex-col items-center transition">
+          <h3 class="text-xl font-bold text-purple-300 mb-3">Training & Optimization</h3>
+          <p class="text-gray-300 text-sm mb-4">Comprehensive training and ongoing support to ensure your team maximizes AI potential.</p>
+          <button onclick="openModal('service-training')" class="py-2 px-4 rounded-lg bg-purple-500 text-white font-bold hover:bg-purple-600 transition">More Details</button>
+        </div>
+      </div>
+
+      <!-- Modals for Services -->
+      <div id="modal-service-agent-setup" class="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center hidden z-50 overscroll-contain">
+        <div class="bg-gray-800 rounded-2xl p-8 max-w-lg w-full mx-4 shadow-2xl max-h-[80vh] overflow-y-auto text-left">
+          <h3 class="text-2xl font-bold text-purple-300 mb-4">Custom AI Agent Setup Details</h3>
+          <p class="text-gray-300 mb-4">Our custom AI agent setup service provides end-to-end development and integration of AI agents tailored to your specific business needs. This includes requirement analysis, agent design, testing, and seamless integration with your existing systems.</p>
+          <ul class="list-disc list-inside text-gray-300 mb-6 pl-5">
+            <li>Personalized AI solutions designed for your unique workflows</li>
+            <li>Integration with popular tools such as Google Sheets, Telegram, and more</li>
+            <li>Scalable and secure deployments to ensure reliability</li>
+            <li>Proven results with significant efficiency gains</li>
+            <li>Ongoing support to address any challenges</li>
+          </ul>
+          <div class="flex justify-end gap-4 sticky bottom-0 bg-gray-800 pt-4">
+            <button onclick="closeModal('service-agent-setup')" class="px-6 py-3 bg-gray-600 rounded-lg text-white">Close</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="modal-service-automation" class="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center hidden z-50 overscroll-contain">
+        <div class="bg-gray-800 rounded-2xl p-8 max-w-lg w-full mx-4 shadow-2xl max-h-[80vh] overflow-y-auto text-left">
+          <h3 class="text-2xl font-bold text-purple-300 mb-4">Automation Strategy Details</h3>
+          <p class="text-gray-300 mb-4">We offer expert consulting to create automation strategies that reduce manual work, optimize processes, and enhance productivity. Our strategies are based on in-depth analysis and industry best practices.</p>
+          <ul class="list-disc list-inside text-gray-300 mb-6 pl-5">
+            <li>Comprehensive process mapping and optimization</li>
+            <li>Identification of automation opportunities tailored to your business</li>
+            <li>Custom strategy development with actionable insights</li>
+            <li>Long-term ROI focus with measurable outcomes</li>
+            <li>Continuous monitoring and adjustment for peak performance</li>
+          </ul>
+          <div class="flex justify-end gap-4 sticky bottom-0 bg-gray-800 pt-4">
+            <button onclick="closeModal('service-automation')" class="px-6 py-3 bg-gray-600 rounded-lg text-white">Close</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="modal-service-training" class="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center hidden z-50 overscroll-contain">
+        <div class="bg-gray-800 rounded-2xl p-8 max-w-lg w-full mx-4 shadow-2xl max-h-[80vh] overflow-y-auto text-left">
+          <h3 class="text-2xl font-bold text-purple-300 mb-4">Training & Optimization Details</h3>
+          <p class="text-gray-300 mb-4">Our training programs equip your team with the skills to effectively use AI tools, while our optimization services ensure continuous improvement and maximum performance from your AI agents.</p>
+          <ul class="list-disc list-inside text-gray-300 mb-6 pl-5">
+            <li>Hands-on workshops and interactive tutorials</li>
+            <li>Ongoing support and troubleshooting assistance</li>
+            <li>Performance monitoring with regular adjustments</li>
+            <li>Knowledge transfer to ensure team self-sufficiency</li>
+            <li>Customized training plans for different skill levels</li>
+          </ul>
+          <div class="flex justify-end gap-4 sticky bottom-0 bg-gray-800 pt-4">
+            <button onclick="closeModal('service-training')" class="px-6 py-3 bg-gray-600 rounded-lg text-white">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our 4-Step Process Section -->
+  <section id="process" class="py-24 px-4 bg-gray-800">
+    <div class="container mx-auto max-w-6xl text-center">
+      <h2 class="text-4xl font-extrabold text-purple-400 mb-8">Our Seamless 4-Step Process ✨</h2>
+      <p class="max-w-3xl mx-auto text-gray-300 mb-12 text-lg">Experience our streamlined approach to delivering powerful AI automation solutions.</p>
+      <div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="bg-gray-700 rounded-2xl p-6 shadow-xl hover:shadow-2xl transition">
+          <div class="flex items-center justify-center w-12 h-12 bg-purple-500 text-white rounded-full mb-4 mx-auto">
+            <span class="text-2xl font-bold">1</span>
+          </div>
+          <h3 class="text-xl font-semibold text-purple-300 mb-2">Discovery & Strategy</h3>
+          <p class="text-gray-300 text-sm">We analyze your needs and craft a tailored AI automation plan.</p>
+        </div>
+        <div class="bg-gray-700 rounded-2xl p-6 shadow-xl hover:shadow-2xl transition">
+          <div class="flex items-center justify-center w-12 h-12 bg-purple-500 text-white rounded-full mb-4 mx-auto">
+            <span class="text-2xl font-bold">2</span>
+          </div>
+          <h3 class="text-xl font-semibold text-purple-300 mb-2">Build & Integration</h3>
+          <p class="text-gray-300 text-sm">We develop and integrate your AI agent with your existing systems.</p>
+        </div>
+        <div class="bg-gray-700 rounded-2xl p-6 shadow-xl hover:shadow-2xl transition">
+          <div class="flex items-center justify-center w-12 h-12 bg-purple-500 text-white rounded-full mb-4 mx-auto">
+            <span class="text-2xl font-bold">3</span>
+          </div>
+          <h3 class="text-xl font-semibold text-purple-300 mb-2">Testing & Launch</h3>
+          <p class="text-gray-300 text-sm">Rigorous testing ensures a flawless deployment of your AI solution.</p>
+        </div>
+        <div class="bg-gray-700 rounded-2xl p-6 shadow-xl hover:shadow-2xl transition">
+          <div class="flex items-center justify-center w-12 h-12 bg-purple-500 text-white rounded-full mb-4 mx-auto">
+            <span class="text-2xl font-bold">4</span>
+          </div>
+          <h3 class="text-xl font-semibold text-purple-300 mb-2">Training & Growth</h3>
+          <p class="text-gray-300 text-sm">We provide training and continuous optimization for long-term success.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Agents -->
+  <section id="agents" class="py-24 px-4 bg-gray-900">
+    <div class="container mx-auto max-w-6xl text-center">
+      <h2 class="text-4xl font-extrabold text-purple-400 mb-8">Our AI Agents</h2>
+      <p class="max-w-3xl mx-auto text-gray-300 mb-12 text-lg">Discover the powerful AI agents designed to streamline your workflows and drive growth.</p>
+      <div class="grid sm:grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="agent-card bg-gray-800 rounded-2xl shadow-xl hover:shadow-2xl p-6 flex flex-col items-center transition">
+          <div class="w-16 h-16 bg-purple-500 rounded-full flex items-center justify-center mb-4">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path></svg>
+          </div>
+          <h3 class="text-xl font-bold text-purple-300 mb-2">Leads to Google Sheets CRM</h3>
+          <div class="agent-details text-gray-300 text-sm mb-4">
+            <ul>
+              <li>Lead transformation</li>
+              <li>Real-time organization</li>
+              <li>Easy tracking</li>
+            </ul>
+          </div>
+          <div class="button-group">
+            <button onclick="openModal('agent-leads-crm')" class="py-2 px-4 rounded-lg bg-purple-500 text-white font-bold hover:bg-purple-600 transition">More Details</button>
+            <a href="https://gumroad.com" target="_blank" class="py-2 px-4 rounded-lg bg-green-500 text-white font-bold hover:bg-green-600 transition">Buy Now</a>
+          </div>
+        </div>
+        <div class="agent-card bg-gray-800 rounded-2xl shadow-xl hover:shadow-2xl p-6 flex flex-col items-center transition">
+          <div class="w-16 h-16 bg-purple-500 rounded-full flex items-center justify-center mb-4">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path></svg>
+          </div>
+          <h3 class="text-xl font-bold text-purple-300 mb-2">Telegram Bot with Google Sheets</h3>
+          <div class="agent-details text-gray-300 text-sm mb-4">
+            <ul>
+              <li>User interaction</li>
+              <li>Secure data sync</li>
+              <li>Automated collection</li>
+            </ul>
+          </div>
+          <div class="button-group">
+            <button onclick="openModal('agent-telegram')" class="py-2 px-4 rounded-lg bg-purple-500 text-white font-bold hover:bg-purple-600 transition">More Details</button>
+            <a href="https://gumroad.com" target="_blank" class="py-2 px-4 rounded-lg bg-green-500 text-white font-bold hover:bg-green-600 transition">Buy Now</a>
+          </div>
+        </div>
+        <div class="agent-card bg-gray-800 rounded-2xl shadow-xl hover:shadow-2xl p-6 flex flex-col items-center transition">
+          <div class="w-16 h-16 bg-purple-500 rounded-full flex items-center justify-center mb-4">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+          </div>
+          <h3 class="text-xl font-bold text-purple-300 mb-2">Newsletter Pipeline</h3>
+          <div class="agent-details text-gray-300 text-sm mb-4">
+            <ul>
+              <li>Content automation</li>
+              <li>Distribution management</li>
+              <li>Engagement tracking</li>
+            </ul>
+          </div>
+          <div class="button-group">
+            <button onclick="openModal('agent-newsletter')" class="py-2 px-4 rounded-lg bg-purple-500 text-white font-bold hover:bg-purple-600 transition">More Details</button>
+            <a href="https://gumroad.com" target="_blank" class="py-2 px-4 rounded-lg bg-green-500 text-white font-bold hover:bg-green-600 transition">Buy Now</a>
+          </div>
+        </div>
+        <div class="agent-card bg-gray-800 rounded-2xl shadow-xl hover:shadow-2xl p-6 flex flex-col items-center transition">
+          <div class="w-16 h-16 bg-purple-500 rounded-full flex items-center justify-center mb-4">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+          </div>
+          <h3 class="text-xl font-bold text-purple-300 mb-2">Social Media Auto-Posting</h3>
+          <div class="agent-details text-gray-300 text-sm mb-4">
+            <ul>
+              <li>Scheduled posting</li>
+              <li>Engagement optimization</li>
+              <li>Multi-platform support</li>
+            </ul>
+          </div>
+          <div class="button-group">
+            <button onclick="openModal('agent-social')" class="py-2 px-4 rounded-lg bg-purple-500 text-white font-bold hover:bg-purple-600 transition">More Details</button>
+            <a href="https://gumroad.com" target="_blank" class="py-2 px-4 rounded-lg bg-green-500 text-white font-bold hover:bg-green-600 transition">Buy Now</a>
+          </div>
+        </div>
+        <div class="agent-card bg-gray-800 rounded-2xl shadow-xl hover:shadow-2xl p-6 flex flex-col items-center transition">
+          <div class="w-16 h-16 bg-purple-500 rounded-full flex items-center justify-center mb-4">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+          </div>
+          <h3 class="text-xl font-bold text-purple-300 mb-2">Customer Support AI Agent</h3>
+          <div class="agent-details text-gray-300 text-sm mb-4">
+            <ul>
+              <li>24/7 support</li>
+              <li>Smart responses</li>
+              <li>Escalation handling</li>
+            </ul>
+          </div>
+          <div class="button-group">
+            <button onclick="openModal('agent-support')" class="py-2 px-4 rounded-lg bg-purple-500 text-white font-bold hover:bg-purple-600 transition">More Details</button>
+            <a href="https://gumroad.com" target="_blank" class="py-2 px-4 rounded-lg bg-green-500 text-white font-bold hover:bg-green-600 transition">Buy Now</a>
+          </div>
+        </div>
+        <div class="agent-card bg-gray-800 rounded-2xl shadow-xl hover:shadow-2xl p-6 flex flex-col items-center transition">
+          <div class="w-16 h-16 bg-purple-500 rounded-full flex items-center justify-center mb-4">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 11c0-1.104.896-2 2-2s2 .896 2 2-2 2-2 2-2-.896-2-2zm0 0V7m0 4v3m-6-3h12m-6 0v6m6-6v6m0-6h-12"></path></svg>
+          </div>
+          <h3 class="text-xl font-bold text-purple-300 mb-2">Revenue Growth Agent</h3>
+          <div class="agent-details text-gray-300 text-sm mb-4">
+            <ul>
+              <li>Data analysis</li>
+              <li>Revenue strategies</li>
+              <li>Conversion boost</li>
+            </ul>
+          </div>
+          <div class="button-group">
+            <button onclick="openModal('agent-revenue')" class="py-2 px-4 rounded-lg bg-purple-500 text-white font-bold hover:bg-purple-600 transition">More Details</button>
+            <a href="https://gumroad.com" target="_blank" class="py-2 px-4 rounded-lg bg-green-500 text-white font-bold hover:bg-green-600 transition">Buy Now</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modals for Agents -->
+      <div id="modal-agent-leads-crm" class="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center hidden z-50 overscroll-contain">
+        <div class="bg-gray-800 rounded-2xl max-w-2xl w-full mx-4 shadow-2xl max-h-[80vh] overflow-y-auto modal-content">
+          <h3 class="text-2xl font-bold text-purple-300 mb-4">Leads to Google Sheets CRM Details</h3>
+          <p class="text-gray-300 mb-4">This agent automatically captures leads from multiple sources such as web forms, emails, and social media, organizing them into a customizable CRM within Google Sheets. It provides real-time updates, customizable fields, and automated notifications to keep your team informed and efficient.</p>
+          <ul class="modal-ul list-disc text-gray-300 mb-6">
+            <li>Real-time lead import from various platforms</li>
+            <li>Customizable fields and interactive dashboards</li>
+            <li>Automated notifications for lead status changes</li>
+            <li>Seamless integration with email and form tools</li>
+            <li>Export options for advanced reporting</li>
+          </ul>
+          <div class="flex justify-end gap-4 sticky bottom-0 bg-gray-800 pt-4">
+            <button onclick="closeModal('agent-leads-crm')" class="px-6 py-3 bg-gray-600 rounded-lg text-white">Close</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="modal-agent-telegram" class="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center hidden z-50 overscroll-contain">
+        <div class="bg-gray-800 rounded-2xl max-w-2xl w-full mx-4 shadow-2xl max-h-[80vh] overflow-y-auto modal-content">
+          <h3 class="text-2xl font-bold text-purple-300 mb-4">Telegram Bot with Google Sheets Details</h3>
+          <p class="text-gray-300 mb-4">This agent deploys a smart Telegram bot that interacts with users in real-time, collects data through custom commands, and syncs it securely to Google Sheets for analysis and reporting. Ideal for customer engagement and data management.</p>
+          <ul class="modal-ul list-disc text-gray-300 mb-6">
+            <li>Customizable commands and automated responses</li>
+
+            <li>Secure data encryption during transfer</li>
+            <li>Automated workflows for data processing</li>
+            <li>Easy setup with a user-friendly interface</li>
+            <li>Real-time syncing and analytics support</li>
+          </ul>
+          <div class="flex justify-end gap-4 sticky bottom-0 bg-gray-800 pt-4">
+            <button onclick="closeModal('agent-telegram')" class="px-6 py-3 bg-gray-600 rounded-lg text-white">Close</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="modal-agent-newsletter" class="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center hidden z-50 overscroll-contain">
+        <div class="bg-gray-800 rounded-2xl max-w-2xl w-full mx-4 shadow-2xl max-h-[80vh] overflow-y-auto modal-content">
+          <h3 class="text-2xl font-bold text-purple-300 mb-4">Newsletter Pipeline Details</h3>
+          <p class="text-gray-300 mb-4">This agent automates the entire newsletter process, from content curation using AI-generated drafts to scheduling and sending, while providing performance analytics to optimize engagement with your audience.</p>
+          <ul class="modal-ul list-disc text-gray-300 mb-6">
+            <li>AI-assisted content generation and curation</li>
+            <li>Automated scheduling and distribution</li>
+            <li>Detailed performance analytics and tracking</li>
+            <li>Personalized email campaigns</li>
+            <li>Subscriber list management tools</li>
+          </ul>
+          <div class="flex justify-end gap-4 sticky bottom-0 bg-gray-800 pt-4">
+            <button onclick="closeModal('agent-newsletter')" class="px-6 py-3 bg-gray-600 rounded-lg text-white">Close</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="modal-agent-social" class="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center hidden z-50 overscroll-contain">
+        <div class="bg-gray-800 rounded-2xl max-w-2xl w-full mx-4 shadow-2xl max-h-[80vh] overflow-y-auto modal-content">
+          <h3 class="text-2xl font-bold text-purple-300 mb-4">Social Media Auto-Posting Details</h3>
+          <p class="text-gray-300 mb-4">This agent automates content scheduling and posting across multiple social media platforms, optimizing for peak engagement times and providing detailed analytics to refine your social strategy.</p>
+          <ul class="modal-ul list-disc text-gray-300 mb-6">
+            <li>Support for platforms like Twitter, LinkedIn, and Instagram</li>
+            <li>AI-driven content optimization</li>
+            <li>Customizable posting calendar</li>
+            <li>Integrated analytics for performance tracking</li>
+            <li>Multi-language posting capabilities</li>
+          </ul>
+          <div class="flex justify-end gap-4 sticky bottom-0 bg-gray-800 pt-4">
+            <button onclick="closeModal('agent-social')" class="px-6 py-3 bg-gray-600 rounded-lg text-white">Close</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="modal-agent-support" class="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center hidden z-50 overscroll-contain">
+        <div class="bg-gray-800 rounded-2xl max-w-2xl w-full mx-4 shadow-2xl max-h-[80vh] overflow-y-auto modal-content">
+          <h3 class="text-2xl font-bold text-purple-300 mb-4">Customer Support AI Agent Details</h3>
+          <p class="text-gray-300 mb-4">This agent provides round-the-clock customer support with intelligent, context-aware responses, seamlessly escalating complex issues to human agents while tracking customer satisfaction.</p>
+          <ul class="modal-ul list-disc text-gray-300 mb-6">
+            <li>24/7 availability with instant responses</li>
+            <li>Advanced natural language processing</li>
+            <li>Integration with a comprehensive knowledge base</li>
+            <li>Real-time customer satisfaction tracking</li>
+            <li>Escalation protocols for complex queries</li>
+          </ul>
+          <div class="flex justify-end gap-4 sticky bottom-0 bg-gray-800 pt-4">
+            <button onclick="closeModal('agent-support')" class="px-6 py-3 bg-gray-600 rounded-lg text-white">Close</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="modal-agent-revenue" class="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center hidden z-50 overscroll-contain">
+        <div class="bg-gray-800 rounded-2xl max-w-2xl w-full mx-4 shadow-2xl max-h-[80vh] overflow-y-auto modal-content">
+          <h3 class="text-2xl font-bold text-purple-300 mb-4">Revenue Growth Agent Details</h3>
+          <p class="text-gray-300 mb-4">This agent analyzes historical and real-time data to optimize revenue strategies, identify growth opportunities, and improve conversion rates with actionable insights.</p>
+          <ul class="modal-ul list-disc text-gray-300 mb-6">
+            <li>Data-driven insights from multiple sources</li>
+            <li>Customized strategy optimization</li>
+            <li>Accurate performance forecasting</li>
+            <li>ROI maximization with targeted campaigns</li>
+            <li>Continuous learning for better results</li>
+          </ul>
+          <div class="flex justify-end gap-4 sticky bottom-0 bg-gray-800 pt-4">
+            <button onclick="closeModal('agent-revenue')" class="px-6 py-3 bg-gray-600 rounded-lg text-white">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section id="pricing" class="py-24 px-4 bg-gray-900">
+    <div class="container mx-auto max-w-6xl text-center">
+      <h2 class="text-4xl font-extrabold text-purple-400 mb-8">Premium AI Agent Setup Plans</h2>
+      <p class="max-w-3xl mx-auto text-gray-300 mb-12 text-lg">Our Done-for-You AI Agent Setup includes custom design, integration, testing, and training, with plans differing by support duration and optimization level.</p>
+
+      <div class="grid sm:grid-cols-1 md:grid-cols-3 gap-8 justify-items-center">
+        <!-- 3-Month Setup -->
+        <div class="bg-gray-800 border-2 border-purple-500 rounded-2xl p-8 shadow-2xl hover:scale-105 transition w-full max-w-md text-center">
+          <h3 class="text-2xl font-bold text-purple-300 mb-3">🚀 3-Month Pro</h3>
+          <p class="text-gray-300 text-sm mb-4">Fast-track setup with core features and 3 months of support.</p>
+          <p class="text-4xl font-extrabold text-purple-200 mb-6">$399</p>
+          <ul class="text-left text-gray-300 text-sm mb-6 space-y-2 mx-auto">
+            <li>✔ AI agent design</li>
+            <li>✔ Seamless integration</li>
+            <li>✔ 1 training session</li>
+            <li>✔ 3 months email support</li>
+          </ul>
+          <button onclick="openModal('3-month')" class="w-full py-3 rounded-xl bg-gradient-to-r from-purple-500 to-pink-500 text-white font-bold hover:scale-105 transition text-center">View Details</button>
+        </div>
+
+        <!-- 6-Month Setup -->
+        <div class="bg-gray-800 border-2 border-purple-500 rounded-2xl p-8 shadow-2xl hover:scale-105 transition w-full max-w-md text-center">
+          <h3 class="text-2xl font-bold text-purple-300 mb-3">🚀 6-Month Elite</h3>
+          <p class="text-gray-300 text-sm mb-4">Extended support with bi-weekly optimizations for 6 months.</p>
+          <p class="text-4xl font-extrabold text-purple-200 mb-6">$699</p>
+          <ul class="text-left text-gray-300 text-sm mb-6 space-y-2 mx-auto">
+            <li>✔ Everything in 3-Month Pro</li>
+            <li>✔ Priority email support</li>
+            <li>✔ Additional integrations</li>
+          </ul>
+          <button onclick="openModal('6-month')" class="w-full py-3 rounded-xl bg-gradient-to-r from-purple-500 to-pink-500 text-white font-bold hover:scale-105 transition text-center">View Details</button>
+        </div>
+
+        <!-- 12-Month Setup -->
+        <div class="bg-gray-800 border-2 border-purple-500 rounded-2xl p-8 shadow-2xl hover:scale-105 transition w-full max-w-md text-center">
+          <h3 class="text-2xl font-bold text-purple-300 mb-3">🚀 12-Month Ultimate</h3>
+          <p class="text-gray-300 text-sm mb-4">Full-year support with dedicated optimizations and scalability.</p>
+          <p class="text-4xl font-extrabold text-purple-200 mb-6">$999</p>
+          <ul class="text-left text-gray-300 text-sm mb-6 space-y-2 mx-auto">
+            <li>✔ Everything in 6-Month Elite</li>
+            <li>✔ Dedicated AI strategist</li>
+            <li>✔ Workflow expansions</li>
+            <li>✔ Advanced analytics setup</li>
+          </ul>
+          <button onclick="openModal('12-month')" class="w-full py-3 rounded-xl bg-gradient-to-r from-purple-500 to-pink-500 text-white font-bold hover:scale-105 transition text-center">View Details</button>
+        </div>
+      </div>
+
+      <!-- Modals for Pricing -->
+      <div id="modal-3-month" class="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center hidden z-50 overscroll-contain">
+        <div class="bg-gray-800 rounded-2xl p-8 max-w-lg w-full mx-4 shadow-2xl max-h-[80vh] overflow-y-auto text-left">
+          <h3 class="text-2xl font-bold text-purple-300 mb-4">3-Month Pro Details</h3>
+          <p class="text-gray-300 mb-4">The 3-Month Pro plan offers a fast-track setup with core features and 3 months of support, ideal for businesses looking to implement AI automation quickly.</p>
+          <ul class="list-disc list-inside text-gray-300 mb-6 pl-5">
+            <li>Custom AI agent design and deployment tailored to your needs</li>
+            <li>Seamless integration with your existing tools and systems</li>
+            <li>One comprehensive training session for your team</li>
+            <li>Three months of email support to address any queries</li>
+          </ul>
+          <div class="flex justify-end gap-4 sticky bottom-0 bg-gray-800 pt-4">
+            <button onclick="closeModal('3-month')" class="px-6 py-3 bg-gray-600 rounded-lg text-white">Close</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="modal-6-month" class="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center hidden z-50 overscroll-contain">
+        <div class="bg-gray-800 rounded-2xl p-8 max-w-lg w-full mx-4 shadow-2xl max-h-[80vh] overflow-y-auto text-left">
+          <h3 class="text-2xl font-bold text-purple-300 mb-4">6-Month Elite Details</h3>
+          <p class="text-gray-300 mb-4">The 6-Month Elite plan provides extended support with bi-weekly optimizations, perfect for businesses seeking sustained performance improvements.</p>
+          <ul class="list-disc list-inside text-gray-300 mb-6 pl-5">
+            <li>Includes all features of the 3-Month Pro plan</li>
+            <li>Bi-weekly performance tuning to optimize AI agent efficiency</li>
+            <li>Priority email support for faster response times</li>
+            <li>Additional integration options to enhance functionality</li>
+          </ul>
+          <div class="flex justify-end gap-4 sticky bottom-0 bg-gray-800 pt-4">
+            <button onclick="closeModal('6-month')" class="px-6 py-3 bg-gray-600 rounded-lg text-white">Close</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="modal-12-month" class="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center hidden z-50 overscroll-contain">
+        <div class="bg-gray-800 rounded-2xl p-8 max-w-lg w-full mx-4 shadow-2xl max-h-[80vh] overflow-y-auto text-left">
+          <h3 class="text-2xl font-bold text-purple-300 mb-4">12-Month Ultimate Details</h3>
+          <p class="text-gray-300 mb-4">The 12-Month Ultimate plan offers full-year support with a dedicated strategist, ideal for businesses aiming for maximum scalability and growth.</p>
+          <ul class="list-disc list-inside text-gray-300 mb-6 pl-5">
+            <li>Includes all features of the 6-Month Elite plan</li>
+            <li>Dedicated AI strategist for personalized guidance</li>
+            <li>Unlimited workflow expansions to adapt to your needs</li>
+            <li>Advanced analytics and reporting for data-driven decisions</li>
+          </ul>
+          <div class="flex justify-end gap-4 sticky bottom-0 bg-gray-800 pt-4">
+            <button onclick="closeModal('12-month')" class="px-6 py-3 bg-gray-600 rounded-lg text-white">Close</button>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- FAQ -->
-  <section id="faq" class="py-20 px-4 bg-gray-100">
+  <section id="faq" class="py-24 px-4 bg-gray-800">
     <div class="container mx-auto max-w-4xl">
-      <h2 class="text-3xl font-bold text-purple-600 mb-8 text-center">Frequently Asked Questions</h2>
-      <div class="space-y-6">
+      <h2 class="text-4xl font-extrabold text-purple-400 mb-8 text-center">Frequently Asked Questions</h2>
+      <div class="space-y-8">
         <div>
-          <h3 class="font-semibold text-lg">What is included in the Full Setup?</h3>
-          <p class="text-gray-700">All DIY products, integrations, workflows, agent configuration, and training as described in the package you choose.</p>
+          <h3 class="font-semibold text-lg text-purple-300">What does the AI Agent Setup include?</h3>
+          <p class="text-gray-300">Custom AI agent design, integration with your tools, testing, deployment, and training tailored to your business needs.</p>
         </div>
         <div>
-          <h3 class="font-semibold text-lg">Can I buy individual kits?</h3>
-          <p class="text-gray-700">Yes, each DIY kit is available separately on Gumroad with full instructions and video walkthroughs.</p>
+          <h3 class="font-semibold text-lg text-purple-300">Do I need technical expertise to use your services?</h3>
+          <p class="text-gray-300">No. Our Done-for-You setups are fully managed, and we provide comprehensive training to ensure ease of use.</p>
         </div>
         <div>
-          <h3 class="font-semibold text-lg">Do I need coding knowledge?</h3>
-          <p class="text-gray-700">No. Most kits are beginner-friendly. Some advanced integrations (webhooks, hosting) will require minimal technical steps; step-by-step docs are included.</p>
+          <h3 class="font-semibold text-lg text-purple-300">Can I upgrade my plan later?</h3>
+          <p class="text-gray-300">Yes, you can upgrade to a longer support plan at any time. Contact us for seamless transitions.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Contact -->
-  <section id="contact" class="py-20 px-4 bg-white">
-    <div class="container mx-auto max-w-4xl">
-      <h2 class="text-3xl font-bold text-purple-600 mb-8 text-center">Contact Us</h2>
-      <form action="#" method="POST" class="bg-gray-50 p-6 rounded-2xl shadow-lg space-y-4">
-        <div class="flex flex-col sm:flex-row sm:space-x-4">
-          <input type="text" name="name" placeholder="Your Name" class="flex-1 p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-purple-400 focus:outline-none">
-          <input type="email" name="email" placeholder="Your Email" class="flex-1 p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-purple-400 focus:outline-none mt-4 sm:mt-0">
-        </div>
-        <input type="text" name="subject" placeholder="Subject" class="w-full p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-purple-400 focus:outline-none">
-        <textarea name="message" placeholder="Your Message" rows="5" class="w-full p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-purple-400 focus:outline-none"></textarea>
-        <button type="submit" class="w-full bg-gradient-to-r from-purple-500 to-pink-500 text-white py-3 rounded-lg font-bold hover:scale-105">Send Message</button>
-      </form>
+  <!-- Contact Us -->
+  <section id="contact" class="py-24 px-4 bg-gray-900">
+    <div class="container mx-auto max-w-4xl text-center">
+      <h2 class="text-4xl font-extrabold text-purple-400 mb-8">Contact Us</h2>
+      <p class="text-lg text-gray-300 mb-6">For support, queries, or business inquiries, please reach out to us at:</p>
+      <a href="mailto:hello@aksharaiworks.com" class="text-xl font-semibold text-purple-300 hover:text-purple-400 transition">hello@aksharaiworks.com</a>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="py-6 bg-gray-800 text-gray-200 text-center">
+  <footer class="py-8 bg-gray-800 text-gray-300 text-center">
     <p>&copy; 2025 Akshar AI. All rights reserved.</p>
   </footer>
 
@@ -423,12 +569,12 @@
     // Modal functions
     function openModal(id) {
       document.getElementById(`modal-${id}`).classList.remove('hidden');
-      document.body.style.overflow = 'hidden'; // Prevent background scrolling
+      document.body.style.overflow = 'hidden';
     }
 
     function closeModal(id) {
       document.getElementById(`modal-${id}`).classList.add('hidden');
-      document.body.style.overflow = 'auto'; // Restore background scrolling
+      document.body.style.overflow = 'auto';
     }
   </script>
 
